@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EliteFit Gym - Transform Your Body</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .membership-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1975&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .testimonials-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1538805060514-97d9cc17730c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .trainers-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1571019614242-c9559590d30c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .classes-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .gallery-item {
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+        
+        .modal {
+            transition: opacity 0.3s ease;
+        }
+        
+        .active-tab {
+            border-bottom: 3px solid #f59e0b;
+            color: #f59e0b;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-900 text-white">
+    <!-- Navigation -->
+    <nav class="bg-gray-900 fixed w-full z-10 shadow-lg">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="data:image/jpeg;base64,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
+                    " alt="EliteFit Logo" class="h-12 w-12 rounded-full">
+                    <span class="ml-3 text-xl font-bold text-orange-500">EliteFit</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-white hover:text-orange-500 transition">Home</a>
+                    <a href="#classes" class="text-white hover:text-orange-500 transition">Classes</a>
+                    <a href="#trainers" class="text-white hover:text-orange-500 transition">Trainers</a>
+                    <a href="#membership" class="text-white hover:text-orange-500 transition">Membership</a>
+                    <a href="#testimonials" class="text-white hover:text-orange-500 transition">Testimonials</a>
+                    <a href="#gallery" class="text-white hover:text-orange-500 transition">Gallery</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="menu-btn" class="text-white focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <a href="#home" class="block py-2 text-white hover:text-orange-500 transition">Home</a>
+                <a href="#classes" class="block py-2 text-white hover:text-orange-500 transition">Classes</a>
+                <a href="#trainers" class="block py-2 text-white hover:text-orange-500 transition">Trainers</a>
+                <a href="#membership" class="block py-2 text-white hover:text-orange-500 transition">Membership</a>
+                <a href="#testimonials" class="block py-2 text-white hover:text-orange-500 transition">Testimonials</a>
+                <a href="#gallery" class="block py-2 text-white hover:text-orange-500 transition">Gallery</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-screen flex items-center pt-20">
+        <div class="container mx-auto px-6 py-20">
+            <div class="max-w-2xl">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6">Transform Your <span class="text-orange-500">Body</span> & <span class="text-orange-500">Mind</span></h1>
+                <p class="text-xl mb-8">Join EliteFit Gym and start your journey to a healthier, stronger you with our state-of-the-art facilities and expert trainers.</p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#membership" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105 text-center">Join Now</a>
+                    <a href="#classes" class="border-2 border-white hover:border-orange-500 hover:text-orange-500 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105 text-center">Explore Classes</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="bg-gray-800 py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="p-6">
+                    <div class="text-5xl font-bold text-orange-500 mb-2">1500+</div>
+                    <div class="text-xl">Happy Members</div>
+                </div>
+                <div class="p-6">
+                    <div class="text-5xl font-bold text-orange-500 mb-2">25+</div>
+                    <div class="text-xl">Expert Trainers</div>
+                </div>
+                <div class="p-6">
+                    <div class="text-5xl font-bold text-orange-500 mb-2">50+</div>
+                    <div class="text-xl">Fitness Classes</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Classes Section -->
+    <section id="classes" class="classes-bg py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Our <span class="text-orange-500">Classes</span></h2>
+                <p class="max-w-2xl mx-auto">Choose from our wide variety of classes designed for all fitness levels</p>
+            </div>
+            
+            <div class="flex justify-center mb-8">
+                <div class="inline-flex rounded-md shadow-sm">
+                    <button onclick="filterClasses('all')" class="px-4 py-2 text-sm font-medium rounded-l-lg border border-gray-600 hover:bg-gray-700 focus:z-10 focus:ring-2 focus:ring-orange-500 active-tab">
+                        All Classes
+                    </button>
+                    <button onclick="filterClasses('strength')" class="px-4 py-2 text-sm font-medium border-t border-b border-gray-600 hover:bg-gray-700 focus:z-10 focus:ring-2 focus:ring-orange-500">
+                        Strength
+                    </button>
+                    <button onclick="filterClasses('cardio')" class="px-4 py-2 text-sm font-medium border-t border-b border-gray-600 hover:bg-gray-700 focus:z-10 focus:ring-2 focus:ring-orange-500">
+                        Cardio
+                    </button>
+                    <button onclick="filterClasses('yoga')" class="px-4 py-2 text-sm font-medium rounded-r-lg border border-gray-600 hover:bg-gray-700 focus:z-10 focus:ring-2 focus:ring-orange-500">
+                        Yoga & Pilates
+                    </button>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="classes-container">
+                <!-- Classes will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Trainers Section -->
+    <section id="trainers" class="trainers-bg py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Meet Our <span class="text-orange-500">Trainers</span></h2>
+                <p class="max-w-2xl mx-auto">Our certified trainers are here to guide you on your fitness journey</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform transition duration-500 hover:scale-105">
+                    <img src="https://images.ctfassets.net/qw8ps43tg2ux/1LPfI8kPATAzojZMBalhli/7dbdddba786444110a762b75977a8fd8/how-it-works-issa-certified-personal-trainer.webp?fm=webp">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Alex Johnson</h3>
+                        <p class="text-orange-500 mb-4">Strength Training Expert</p>
+                        <p class="text-gray-300">With 10+ years of experience, Alex specializes in strength and conditioning.</p>
+                        <div class="mt-4 flex space-x-4">
+                            <a href="#" class="text-orange-500 hover:text-orange-400"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="text-orange-500 hover:text-orange-400"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-orange-500 hover:text-orange-400"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform transition duration-500 hover:scale-105">
+                    <img src="https://ml8zbeqs4qgx.i.optimole.com/w:853/h:1080/q:mauto/f:best/https://richmond.selfmadetrainingfacility.com/wp-content/uploads/sites/75/2024/09/Screenshot-2024-10-02-at-11.07.20-AM-min.png" alt="Trainer 2" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Sarah Williams</h3>
+                        <p class="text-orange-500 mb-4">Yoga & Pilates Instructor</p>
+                        <p class="text-gray-300">Sarah brings mindfulness and flexibility training to all her classes.</p>
+                        <div class="mt-4 flex space-x-4">
+                            <a href="#" class="text-orange-500 hover:text-orange-400"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="text-orange-500 hover:text-orange-400"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-orange-500 hover:text-orange-400"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform transition duration-500 hover:scale-105">
+                    <img src="https://media.istockphoto.com/id/1146745072/photo/african-athletic-man-portrait.jpg?s=612x612&w=0&k=20&c=s5aMnbBNhFanlsgWGHG02fEb8qezqCIfphIGYWhG7ZU=" alt="Trainer 3" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Mike Rodriguez</h3>
+                        <p class="text-orange-500 mb-4">HIIT Specialist</p>
+                        <p class="text-gray-300">Mike's high-energy classes will push you to your limits and beyond.</p>
+                        <div class="mt-4 flex space-x-4">
+                            <a href="#" class="text-orange-500 hover:text-orange-400"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="text-orange-500 hover:text-orange-400"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-orange-500 hover:text-orange-400"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform transition duration-500 hover:scale-105">
+                    <img src="https://media.istockphoto.com/id/1361355221/photo/happy-asian-athletic-woman-exercising-with-hand-weights-in-a-gym-and-looking-at-camera.jpg?s=612x612&w=0&k=20&c=bDUvRf25Ua6iEIbdbWDjRxSEG63Mpz2QkwhZjMuvE3c=" alt="Trainer 4" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Emily Chen</h3>
+                        <p class="text-orange-500 mb-4">Nutrition & Fitness Coach</p>
+                        <p class="text-gray-300">Emily combines nutrition advice with functional training for optimal results.</p>
+                        <div class="mt-4 flex space-x-4">
+                            <a href="#" class="text-orange-500 hover:text-orange-400"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="text-orange-500 hover:text-orange-400"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-orange-500 hover:text-orange-400"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Membership Section -->
+    <section id="membership" class="membership-bg py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Choose Your <span class="text-orange-500">Plan</span></h2>
+                <p class="max-w-2xl mx-auto">Flexible membership options to fit your lifestyle and goals</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform transition duration-500 hover:scale-105">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4">Basic</h3>
+                        <div class="text-4xl font-bold mb-6">K700<span class="text-lg">/month</span></div>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center"><i class="fas fa-check text-orange-500 mr-2"></i> Gym Access</li>
+                            <li class="flex items-center"><i class="fas fa-check text-orange-500 mr-2"></i> Basic Classes</li>
+                            <li class="flex items-center"><i class="fas fa-times text-gray-500 mr-2"></i> Personal Trainer</li>
+                            <li class="flex items-center"><i class="fas fa-times text-gray-500 mr-2"></i> Nutrition Plan</li>
+                        </ul>
+                        <button class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-4 rounded-full transition">Get Started</button>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform transition duration-500 hover:scale-105 border-2 border-orange-500 relative">
+                    <div class="absolute top-0 right-0 bg-orange-500 text-white px-4 py-1 text-sm font-bold">POPULAR</div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4">Premium</h3>
+                        <div class="text-4xl font-bold mb-6">K1600<span class="text-lg">/month</span></div>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center"><i class="fas fa-check text-orange-500 mr-2"></i> Gym Access</li>
+                            <li class="flex items-center"><i class="fas fa-check text-orange-500 mr-2"></i> All Classes</li>
+                            <li class="flex items-center"><i class="fas fa-check text-orange-500 mr-2"></i> 1 PT Session/Month</li>
+                            <li class="flex items-center"><i class="fas fa-check text-orange-500 mr-2"></i> Basic Nutrition Plan</li>
+                        </ul>
+                        <button class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-4 rounded-full transition">Get Started</button>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform transition duration-500 hover:scale-105">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4">Elite</h3>
+                        <div class="text-4xl font-bold mb-6">K2500<span class="text-lg">/month</span></div>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center"><i class="fas fa-check text-orange-500 mr-2"></i> 24/7 Gym Access</li>
+                            <li class="flex items-center"><i class="fas fa-check text-orange-500 mr-2"></i> All Classes + Priority</li>
+                            <li class="flex items-center"><i class="fas fa-check text-orange-500 mr-2"></i> 4 PT Sessions/Month</li>
+                            <li class="flex items-center"><i class="fas fa-check text-orange-500 mr-2"></i> Custom Nutrition Plan</li>
+                        </ul>
+                        <button class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-4 rounded-full transition">Get Started</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials-bg py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Success <span class="text-orange-500">Stories</span></h2>
+                <p class="max-w-2xl mx-auto">Hear from our members about their transformation journeys</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-800 bg-opacity-70 rounded-lg p-8">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Testimonial 1" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Jessica Parker</h4>
+                            <p class="text-orange-500 text-sm">Lost 25kg in 6 months</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">"EliteFit changed my life. The trainers are incredibly supportive and the community is amazing. I've never felt better!"</p>
+                    <div class="mt-4 text-orange-500">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800 bg-opacity-70 rounded-lg p-8">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Testimonial 2" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Michael Thompson</h4>
+                            <p class="text-orange-500 text-sm">Gained 8kg muscle</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">"The personal training program helped me achieve my muscle gain goals faster than I ever thought possible. Highly recommend!"</p>
+                    <div class="mt-4 text-orange-500">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800 bg-opacity-70 rounded-lg p-8">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Testimonial 3" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Sarah Johnson</h4>
+                            <p class="text-orange-500 text-sm">Ran first marathon</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">"The cardio classes prepared me perfectly for my first marathon. The energy in this gym is unmatched!"</p>
+                    <div class="mt-4 text-orange-500">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Our <span class="text-orange-500">Gallery</span></h2>
+                <p class="max-w-2xl mx-auto">Take a look at our state-of-the-art facilities and vibrant community</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="gallery-item rounded-lg overflow-hidden shadow-lg cursor-pointer" onclick="openModal('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Gym Facility" class="w-full h-64 object-cover">
+                </div>
+                
+                <div class="gallery-item rounded-lg overflow-hidden shadow-lg cursor-pointer" onclick="openModal('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Weight Area" class="w-full h-64 object-cover">
+                </div>
+                
+                <div class="gallery-item rounded-lg overflow-hidden shadow-lg cursor-pointer" onclick="openModal('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Cardio Zone" class="w-full h-64 object-cover">
+                </div>
+                
+                <div class="gallery-item rounded-lg overflow-hidden shadow-lg cursor-pointer" onclick="openModal('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Yoga Class" class="w-full h-64 object-cover">
+                </div>
+                
+                <div class="gallery-item rounded-lg overflow-hidden shadow-lg cursor-pointer" onclick="openModal('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="HIIT Session" class="w-full h-64 object-cover">
+                </div>
+                
+                <div class="gallery-item rounded-lg overflow-hidden shadow-lg cursor-pointer" onclick="openModal('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Locker Room" class="w-full h-64 object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-orange-500">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Start Your Fitness Journey?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Join EliteFit today and get your first week free with no commitment!</p>
+            <a href="#membership" class="bg-white text-orange-500 hover:bg-gray-100 font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105 inline-block">Claim Your Free Week</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="data:image/jpeg;base64,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" alt="EliteFit Logo" class="h-12 w-12 rounded-full">
+                        <span class="ml-3 text-xl font-bold text-orange-500">EliteFit</span>
+                    </div>
+                    <p class="text-gray-400">Transforming lives through fitness since 2010.</p>
+                    <div class="mt-4 flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-orange-500"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-orange-500"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-orange-500"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-orange-500"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-orange-500 transition">Home</a></li>
+                        <li><a href="#classes" class="text-gray-400 hover:text-orange-500 transition">Classes</a></li>
+                        <li><a href="#trainers" class="text-gray-400 hover:text-orange-500 transition">Trainers</a></li>
+                        <li><a href="#membership" class="text-gray-400 hover:text-orange-500 transition">Membership</a></li>
+                        <li><a href="#testimonials" class="text-gray-400 hover:text-orange-500 transition">Testimonials</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contact Us</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-2 text-orange-500"></i>
+                            <span>123 Fitness St, Health City, HC 12345</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-2 text-orange-500"></i>
+                            <span>(123) 456-7890</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2 text-orange-500"></i>
+                            <span>info@elitefit.com</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Opening Hours</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex justify-between">
+                            <span>Monday - Friday</span>
+                            <span>5:00 AM - 11:00 PM</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Saturday</span>
+                            <span>7:00 AM - 9:00 PM</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Sunday</span>
+                            <span>8:00 AM - 8:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-gray-800 text-center text-gray-400">
+                <p>&copy; 2025 EliteFit Gym. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center hidden">
+        <div class="relative max-w-4xl w-full p-4">
+            <button onclick="closeModal()" class="absolute -top-12 right-0 text-white text-3xl focus:outline-none">
+                <i class="fas fa-times"></i>
+            </button>
+            <img id="modalImage" src="" alt="" class="w-full max-h-screen object-contain">
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Class filtering functionality
+        const classes = [
+            {
+                id: 1,
+                title: "Power Lifting",
+                type: "strength",
+                description: "Build raw strength with our power lifting program focusing on the big three lifts.",
+                image: "https://w0.peakpx.com/wallpaper/263/339/HD-wallpaper-woman-doing-weight-lifting.jpg",
+                time: "Mon, Wed, Fri | 6:00 PM"
+            },
+            {
+                id: 2,
+                title: "HIIT Blast",
+                type: "cardio",
+                description: "High intensity interval training to burn maximum calories in minimum time.",
+                image: "https://media.istockphoto.com/id/2157521182/photo/sportive-woman-doing-workout-using-a-medicine-ball.webp?a=1&b=1&s=612x612&w=0&k=20&c=596dC7ntTxiU5nuFYcsxnf6CFkP_14CkXjAeoRWS8SA=",
+                time: "Tue, Thu | 7:00 AM & 6:00 PM"
+            },
+            {
+                id: 3,
+                title: "Yoga Flow",
+                type: "yoga",
+                description: "Improve flexibility, balance and mindfulness with our vinyasa flow classes.",
+                image: "https://plus.unsplash.com/premium_photo-1666264200751-e0df29238185?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YmxhY2slMjB3b21hbiUyMHlvZ2F8ZW58MHx8MHx8fDA%3D",
+                time: "Daily | 7:00 AM & 5:30 PM"
+            },
+            {
+                id: 4,
+                title: "Body Sculpt",
+                type: "strength",
+                description: "Tone and define your muscles with this full-body resistance workout.",
+                image: "https://cms.21ninety.com/wp-content/uploads/2022/08/AF72B743-99C7-4B3F-862B-E0843A3B3377-scaled.jpeg",
+                time: "Mon, Wed, Fri | 9:00 AM & 7:00 PM"
+            },
+            {
+                id: 5,
+                title: "Spin Cycle",
+                type: "cardio",
+                description: "High-energy indoor cycling class that will push your endurance to the limit.",
+                image: "https://images.westend61.de/0001858868pw/sporty-black-female-engaging-in-a-healthy-home-workout-routine-using-a-stationary-bike-as-part-of-her-fitness-regimen-young-woman-exercising-with-a-focus-on-achieving-her-health-and-wellness-goals-JLPSF30515.jpg",
+                time: "Tue, Thu, Sat | 6:30 AM & 6:00 PM"
+            },
+            {
+                id: 6,
+                title: "Pilates Core",
+                type: "yoga",
+                description: "Strengthen your core and improve posture with our reformer pilates classes.",
+                image: "https://homeandtexture.com/wp-content/uploads/2024/03/sunday-ii-sunday-ZeTmQgm2N3k-unsplash-2048x1365.jpg",
+                time: "Mon, Wed, Fri | 10:00 AM & 4:00 PM"
+            }
+        ];
+        
+        function renderClasses(filter = 'all') {
+            const container = document.getElementById('classes-container');
+            container.innerHTML = '';
+            
+            const filteredClasses = filter === 'all' 
+                ? classes 
+                : classes.filter(cls => cls.type === filter);
+            
+            filteredClasses.forEach(cls => {
+                const classElement = document.createElement('div');
+                classElement.className = 'bg-gray-800 rounded-lg overflow-hidden shadow-lg transform transition duration-500 hover:scale-105';
+                classElement.innerHTML = `
+                    <img src="${cls.image}" alt="${cls.title}" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">${cls.title}</h3>
+                        <p class="text-orange-500 mb-4">${cls.time}</p>
+                        <p class="text-gray-300 mb-4">${cls.description}</p>
+                        <button class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-full transition text-sm">Book Now</button>
+                    </div>
+                `;
+                container.appendChild(classElement);
+            });
+        }
+        
+        function filterClasses(type) {
+            renderClasses(type);
+            
+            // Update active tab styling
+            const tabs = document.querySelectorAll('#classes + div button');
+            tabs.forEach(tab => {
+                if (tab.textContent.toLowerCase().includes(type) || 
+                   (type === 'all' && tab.textContent.includes('All'))) {
+                    tab.classList.add('active-tab');
+                    tab.classList.add('text-orange-500');
+                } else {
+                    tab.classList.remove('active-tab');
+                    tab.classList.remove('text-orange-500');
+                }
+            });
+        }
+        
+        // Initialize classes on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            renderClasses();
+            
+            // Set first tab as active initially
+            const firstTab = document.querySelector('#classes + div button');
+            firstTab.classList.add('active-tab');
+            firstTab.classList.add('text-orange-500');
+        });
+        
+        // Image modal functionality
+        function openModal(imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            
+            modalImg.src = imageSrc;
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close modal when clicking outside the image
+        document.getElementById('imageModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+        
+        // Sticky navigation on scroll
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('shadow-xl');
+                nav.classList.add('bg-opacity-90');
+            } else {
+                nav.classList.remove('shadow-xl');
+                nav.classList.remove('bg-opacity-90');
+            }
+        });
+    </script>
+</body>
+</html>

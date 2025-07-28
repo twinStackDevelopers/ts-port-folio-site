@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velocity Motors | Premium Car Showroom</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <span>Velocity</span>Motors
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#inventory">Inventory</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Experience Automotive Excellence</h1>
+            <p>Discover the finest selection of luxury and performance vehicles</p>
+            <div class="hero-buttons">
+                <a href="#inventory" class="btn btn-primary">Browse Inventory</a>
+                <a href="#contact" class="btn btn-secondary">Book a Test Drive</a>
+            </div>
+        </div>
+        <div class="hero-slider">
+            <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
+        </div>
+        <div class="slider-controls">
+            <button class="slider-prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="slider-next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
+
+    <section class="inventory-section" id="inventory">
+        <div class="container">
+            <h2 class="section-title">Our Premium Inventory</h2>
+            <p class="section-subtitle">Browse our curated collection of exceptional vehicles</p>
+            
+            <div class="filter-controls">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="sports">Sports</button>
+                <button class="filter-btn" data-filter="luxury">Luxury</button>
+                <button class="filter-btn" data-filter="suv">SUV</button>
+                <button class="filter-btn" data-filter="electric">Electric</button>
+            </div>
+            
+            <div class="inventory-grid"></div>
+            
+            <div class="view-more">
+                <button class="btn btn-primary">View Full Inventory</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="services-section" id="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle">Comprehensive automotive solutions tailored to your needs</p>
+            
+           <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3>Vehicle Sales</h3>
+                    <p>Explore our extensive collection of new and pre-owned luxury vehicles with competitive financing options.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-wrench"></i>
+                    </div>
+                    <h3>Maintenance</h3>
+                    <p>Expert maintenance and repair services performed by certified technicians using genuine parts.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Warranty</h3>
+                    <p>Comprehensive warranty packages to protect your investment and ensure peace of mind.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <h3>Trade-In</h3>
+                    <p>Get a fair market value assessment for your current vehicle when upgrading to your next dream car.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">Client Testimonials</h2>
+            <p class="section-subtitle">What our customers say about us</p>
+            
+            <div class="testimonials-slider">
+                <div class="testimonial active">
+                    <div class="testimonial-content">
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"The team at Velocity Motors made my car buying experience exceptional. Their knowledge and attention to detail are unmatched in the industry."</p>
+                        <div class="client-info">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client">
+                            <div>
+                                <h4>Michael Johnson</h4>
+                                <span>Porsche 911 Owner</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"I've purchased three vehicles from Velocity over the years. Their after-sales service keeps me coming back. Truly a customer-first approach."</p>
+                        <div class="client-info">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client">
+                            <div>
+                                <h4>Sarah Williams</h4>
+                                <span>Mercedes-Benz GLE Owner</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p>"As a first-time luxury car buyer, I was nervous about the process. The team guided me through every step with patience and professionalism."</p>
+                        <div class="client-info">
+                            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Client">
+                            <div>
+                                <h4>David Chen</h4>
+                                <span>Audi e-tron Owner</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-controls">
+                <button class="testimonial-prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="testimonial-next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="about-content">
+                <h2 class="section-title">About Velocity Motors</h2>
+                <p>Founded in 2005, Velocity Motors has established itself as the premier destination for automotive enthusiasts seeking exceptional vehicles and unparalleled service.</p>
+                <p>Our showroom features a carefully curated selection of the world's most prestigious automotive brands, each vehicle hand-picked for its quality, performance, and luxury.</p>
+                <p>What sets us apart is our commitment to creating lasting relationships with our clients. We don't just sell cars - we help you find the perfect vehicle to match your lifestyle and aspirations.</p>
+                <div class="stats-grid">
+                    <div class="stat">
+                        <h3 data-count="18">0</h3>
+                        <p>Years in Business</p>
+                    </div>
+                    <div class="stat">
+                        <h3 data-count="2500">0</h3>
+                        <p>Vehicles Sold</p>
+                    </div>
+                    <div class="stat">
+                        <h3 data-count="98">0</h3>
+                        <p>Customer Satisfaction</p>
+                    </div>
+                    <div class="stat">
+                        <h3 data-count="15">0</h3>
+                        <p>Brands Available</p>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Velocity Motors Showroom">
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <h2 class="section-title">Contact Us</h2>
+                <p class="section-subtitle">Visit our showroom or get in touch</p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Location</h3>
+                            <p>123 Automotive Avenue<br>Motor City, MC 90210</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>(555) 123-4567</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>info@velocitymotors.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h3>Hours</h3>
+                            <p>Mon-Fri: 9am - 7pm<br>Sat: 10am - 6pm<br>Sun: 12pm - 5pm</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <h3>Send Us a Message</h3>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" placeholder="Phone Number">
+                    </div>
+                    <div class="form-group">
+                        <select id="interest">
+                            <option value="">I'm interested in...</option>
+                            <option value="purchase">Purchasing a vehicle</option>
+                            <option value="test-drive">Scheduling a test drive</option>
+                            <option value="service">Service appointment</option>
+                            <option value="trade-in">Vehicle trade-in</option>
+                            <option value="other">Other inquiry</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" rows="5" placeholder="Your Message"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span>Velocity</span>Motors
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#inventory">Inventory</a></li>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="link-group">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="New vehicles.html">New Vehicles</a></li>
+                            <li><a href="PreOwned.html">Pre-Owned</a></li>
+                            <li><a href="index.html#services">Financing</a></li>
+                            <li><a href="index.html#services">Maintenance</a></li>
+                            <li><a href="index.html#services">Parts</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="link-group">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                            <li><a href="terms-of-service.html">Terms of Service</a></li>
+                            <li><a href="cookie-policy.html">Cookie Policy</a></li>
+                            <li><a href="faqs.html">FAQs</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Velocity Motors. All rights reserved. site created by Atupele Mulimbika and Justice Wilima</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal" id="carModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-car-image">
+                <img src="" alt="Car Image" id="modalCarImage">
+            </div>
+            <div class="modal-car-details">
+                <h2 id="modalCarTitle"></h2>
+                <div class="car-specs">
+                    <div class="spec">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span id="modalCarSpeed">0-60: 3.5s</span>
+                    </div>
+                    <div class="spec">
+                        <i class="fas fa-gas-pump"></i>
+                        <span id="modalCarFuel">Premium</span>
+                    </div>
+                    <div class="spec">
+                        <i class="fas fa-cogs"></i>
+                        <span id="modalCarTransmission">Automatic</span>
+                    </div>
+                    <div class="spec">
+                        <i class="fas fa-car"></i>
+                        <span id="modalCarType">Coupe</span>
+                    </div>
+                </div>
+                <p id="modalCarDescription"></p>
+                <div class="car-price">
+                    <span id="modalCarPrice">$98,500</span>
+                    <span class="price-label">MSRP</span>
+                </div>
+                <div class="modal-buttons">
+                    <button class="btn btn-primary" id="testDriveBtn">Schedule Test Drive</button>
+                    <button class="btn btn-secondary" id="financeBtn">Financing Options</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
